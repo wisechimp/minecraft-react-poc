@@ -5,11 +5,15 @@ import { Vector3 } from 'three';
 import { Physics } from 'use-cannon';
 import { 
   Camera,
+  Cube,
   Ground,
-  Player
+  Player,
+  useCubeStore
  } from './gameComponents'
 
 function App() {
+  const cubes = useCubeStore(state => state.cubes)
+
   return (
     <Canvas shadowMap sRGB gl={{ alpha: false }}>
       <Camera fov={50} />
@@ -22,9 +26,13 @@ function App() {
         intensity={0.8}
         position={[100, 100, 100]}
       />
-      <Physics>
+      <Physics gravity={[0, -30, 0]}>
         <Ground />
         <Player />
+        <Cube position={[0, 0.5, -10]} />
+        {
+          cubes.map(cube => cube)
+        }
       </Physics>
     </Canvas>
   )
