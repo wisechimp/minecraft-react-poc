@@ -7,7 +7,7 @@ import CustomPointerLockControls from './CustomPointerLockControls'
 const Player = (props) => {
     const { camera } = useThree()
 
-    const [ ref ] = useSphere(() => ({
+    const [ref, api] = useSphere(() => ({
         mass: 1,
         type: "Dynamic",
         position: [0, 10, 0],
@@ -21,7 +21,7 @@ const Player = (props) => {
     return (
         <>
             <CustomPointerLockControls />
-            <mesh ref={ ref }/>
+            <mesh ref={ref} />
         </>
     )
 }
