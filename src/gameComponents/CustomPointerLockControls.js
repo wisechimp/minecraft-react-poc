@@ -4,7 +4,7 @@ import { PointerLockControls as PointerLockControlsImpl } from 'three/examples/j
 
 extend({ PointerLockControlsImpl })
 
-export default (props) => {
+const CustomPointerLock = (props) => {
     const { camera, gl } = useThree()
     const controls = useRef()
 
@@ -22,3 +22,5 @@ export default (props) => {
         />
     )
 }
+
+export default CustomPointerLock

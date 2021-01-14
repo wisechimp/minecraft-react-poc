@@ -4,10 +4,10 @@ import { useSphere } from 'use-cannon'
 
 import CustomPointerLockControls from './CustomPointerLockControls'
 
-export default (props) => {
+const Player = (props) => {
     const { camera } = useThree()
 
-    const [ ref, api ] = useSphere(() => ({
+    const [ ref ] = useSphere(() => ({
         mass: 1,
         type: "Dynamic",
         position: [0, 10, 0],
@@ -25,3 +25,5 @@ export default (props) => {
         </>
     )
 }
+
+export default Player

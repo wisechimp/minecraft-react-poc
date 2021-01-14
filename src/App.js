@@ -3,16 +3,20 @@ import React from 'react'
 import { Canvas } from 'react-three-fiber';
 import { Vector3 } from 'three';
 import { Physics } from 'use-cannon';
-import Camera from './gameComponents/Camera'
-import Ground from './gameComponents/Ground'
-import Player from './gameComponents/Player'
+import { 
+  Camera,
+  Ground,
+  Player
+ } from './gameComponents'
 
 function App() {
   return (
     <Canvas shadowMap sRGB gl={{ alpha: false}}>
       <Camera />
+      {/* As Maksim says in the tutorial he's chosen these values, in the subsequent lines, "because they look better"! */}
       <Sky sunPosition={new Vector3(100, 10, 100)} />
       <ambientLight intensity={0.3} />
+      {/* This allows us to create shadows */}
       <pointLight castShadow intensity={0.8} position={[100, 100, 100]} />
       <Physics gravity={[0, -30, 0]}>
         <Ground />

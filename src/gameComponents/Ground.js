@@ -3,7 +3,7 @@ import { RepeatWrapping, TextureLoader } from 'three'
 import { usePlane } from 'use-cannon'
 import grass from '../images/grass.jpg'
 
-export default (props) => {
+const Ground = (props) => {
     const [ref] = usePlane(() => ({
         rotation: [-Math.PI / 2, 0, 0],
         ...props
@@ -17,7 +17,9 @@ export default (props) => {
     return (
         <mesh ref={ref} receiveShadow>
             <planeBufferGeometry attach="geometry" args={ [1009, 1000] }/>
-            <meshStandardMaterial attach="material" color="green"/>
+            <meshStandardMaterial attach="material"/>
         </mesh>
     )
 }
+
+export default Ground

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { useThree } from 'react-three-fiber'
 
-export default (props) => {
+const Camera = (props) => {
     const ref = useRef()
     const { setDefaultCamera } = useThree()
 
@@ -9,5 +9,7 @@ export default (props) => {
         setDefaultCamera(ref.current)
     }, [])
 
-    return <perspectiveCamera ref={ ref } { ...props } />
+    return <perspectiveCamera ref={ref} {...props} />
 }
+
+export default Camera
